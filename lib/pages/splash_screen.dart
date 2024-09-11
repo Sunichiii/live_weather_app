@@ -11,49 +11,41 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-
-  void initState(){
+  void initState() {
     super.initState();
     //this will navigate to the weather page after certain delay
     _navigateToHome();
-}
-  _navigateToHome() async{
+  }
+
+  _navigateToHome() async {
     //setting delay duration
     await Future.delayed(const Duration(seconds: 3), () {});
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context)=> WeatherPage())
-    );
+        context, MaterialPageRoute(builder: (context) => WeatherPage()));
   }
-  Widget build(BuildContext context) {
 
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.asset(
-            "assets/splashscreen.json",
-            height: 300,
-            width: 300,
-            fit: BoxFit.cover
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset("assets/splashscreen.json",
+              height: 300, width: 300, fit: BoxFit.cover),
+          const SizedBox(
+            height: 5,
           ),
-
-            const SizedBox(height: 5,),
-
-            const Text(
+          const Text(
             "Weather Today",
             style: TextStyle(
-            fontFamily: "BonaNova",
-            fontSize: 35,
-            fontWeight: FontWeight.bold,
-            color: Colors.white
-            ), // Text color
-            ),
-          ],
-        )
-      ),
+                fontFamily: "BonaNova",
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: Colors.white), // Text color
+          ),
+        ],
+      )),
     );
   }
 }

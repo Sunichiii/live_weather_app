@@ -11,12 +11,15 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
+  //adding api key
   final _weatherService = WeatherService("65840199bc18b46ec973aa02230f4ee5");
   Weather? _weather;
   String _errorMessage = '';
+
+  //for search ber
   final _searchController = TextEditingController();
 
-  // Fetch weather data
+  // Fetching weather data
   _fetchWeather({String? cityName}) async {
     setState(() {
       _errorMessage = '';
@@ -39,7 +42,7 @@ class _WeatherPageState extends State<WeatherPage> {
     }
   }
 
-  // Handle search submission
+  // Handling search submission
   void _onSearch() {
     final cityName = _searchController.text.trim();
     if (cityName.isNotEmpty) {
@@ -62,7 +65,7 @@ class _WeatherPageState extends State<WeatherPage> {
       case 'rain':
       case 'drizzle':
       case 'shower rain':
-        return 'assets/thunder.json';
+        return 'assets/rainy.json';
 
       case 'clear':
         return 'assets/sunny.json';
@@ -81,7 +84,7 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Background color
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0),
         child: Column(
@@ -94,11 +97,12 @@ class _WeatherPageState extends State<WeatherPage> {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Search for a city...',
-                  hintStyle: const TextStyle(color: Colors.white54, fontFamily: "Poppins"),
+                  hintStyle: const TextStyle(
+                      color: Colors.white54, fontFamily: "Poppins"),
                   prefixIcon: const Icon(Icons.search, color: Colors.white54),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white54),
+                    borderSide: const BorderSide(color: Colors.white54),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
