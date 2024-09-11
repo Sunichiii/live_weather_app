@@ -85,6 +85,13 @@ flutter:
     - family: BebasNeue
       fonts:
        - asset: fonts/BebasNeue-Regular.ttf
+
+    - family: BonaNova
+      fonts:
+        - asset: fonts/BonaNova-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
